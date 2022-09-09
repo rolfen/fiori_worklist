@@ -12,19 +12,42 @@
         busyIndicatorDelay="{objectView>/delay}">
 
         <semantic:titleHeading>
-            <Title
+            <Title id="_IDGenTitle1"
                 text="{SalesOrderID}"
                 level="H2"/>
         </semantic:titleHeading>
 
         <semantic:headerContent>
-            <ObjectNumber
-                number="{
-                    path: 'NetAmount',
-                    formatter: '.formatter.numberUnit'
-                }"
-                unit="{CurrencyCode}" />
+
+            <IconTabBar
+                id="idTabBar"
+                class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter id="_IDGenIconTabFilter1"
+                        design="Horizontal"
+                        text="Confirm Ok"
+                        key="Ok" />
+                    <IconTabFilter id="_IDGenIconTabFilter2"
+                        design="Horizontal"
+                        text="Check Heavys"
+                        key="Heavy" />
+                    <IconTabFilter id="_IDGenIconTabFilter3"
+                        design="Horizontal"
+                        text="Claim Overweights"
+                        key="Overweight" />
+                </items>
+                <content>
+                        <ObjectNumber id="_IDGenObjectNumber1"
+                            number="{
+                                path: 'NetAmount',
+                                formatter: '.formatter.numberUnit'
+                            }"
+                            unit="{CurrencyCode}" />
+                </content>
+            </IconTabBar>
+
         </semantic:headerContent>
+
 
         <semantic:sendEmailAction>
             <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
